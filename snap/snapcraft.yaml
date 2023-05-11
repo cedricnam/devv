@@ -1,0 +1,23 @@
+name: hello-nam
+base: core22
+version: '1.0'
+summary: Simple Hello Nam application
+description: |
+  This is a simple Hello World application to demonstrate how to create a Snap.
+
+# grade: stable
+confinement: dev-mode
+
+parts:
+  hello-nam:
+    plugin: colcon
+    source: 
+    override-build: |
+      echo "#!/bin/sh" > hello-world.sh
+      echo "echo 'Hello World'" >> hello-world.sh
+      chmod +x hello-world.sh
+      install -D hello-world.sh $SNAPCRAFT_PART_INSTALL/bin/hello-world.sh
+
+apps:
+  hello-world:
+    command: bin/hello-world.sh
