@@ -11,13 +11,13 @@ confinement: dev-mode
 parts:
   hello-nam:
     plugin: colcon
-    source: 
-    override-build: |
-      echo "#!/bin/sh" > hello-world.sh
-      echo "echo 'Hello World'" >> hello-world.sh
-      chmod +x hello-world.sh
-      install -D hello-world.sh $SNAPCRAFT_PART_INSTALL/bin/hello-world.sh
+    source-type: git
+    source: https://github.com/cedricnam/devv.git
+    source-branch: master
+    source-subdir: devv_launch
+    stage-packages: [ros-humble-ros2launch]
 
 apps:
   hello-world:
-    command: bin/hello-world.sh
+    command: opt/ros/humble/bin/ros2 launch devv_launch devv_launch.py
+    extentions: [ros2-humble]
