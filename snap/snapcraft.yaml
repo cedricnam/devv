@@ -13,9 +13,11 @@ parts:
     source-type: git
     source: https://github.com/cedricnam/devv.git
     source-branch: master
-    source-subdir: devv_launch
+    source-subdir: res
     stage-packages:
-      - ros-humble-ros2launch
+      # - ros-humble-ros2launch
+      - ros-humble-ros2run
+      - ros-humble-std-msgs
 
 apps:
   hello-nam:

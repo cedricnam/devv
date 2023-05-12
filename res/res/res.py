@@ -37,7 +37,6 @@ def main(args=None):
             rclpy.shutdown()
             kill_it = False
             main()
-        print("111")
 
 if __name__ == '__main__':
     main()
