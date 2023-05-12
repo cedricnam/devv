@@ -5,19 +5,22 @@ summary: Simple Hello Nam application
 description: |
   This is a simple Hello World application to demonstrate how to create a Snap.
 
-# grade: stable
-confinement: dev-mode
+confinement: devmode
 
 parts:
-  hello-nam:
+  hello-nam-test:
     plugin: colcon
     source-type: git
     source: https://github.com/cedricnam/devv.git
     source-branch: master
     source-subdir: devv_launch
-    stage-packages: [ros-humble-ros2launch]
+    stage-packages:
+      - ros-humble-ros2launch
 
 apps:
-  hello-world:
-    command: opt/ros/humble/bin/ros2 launch devv_launch devv_launch.py
-    extentions: [ros2-humble]
+  hello-nam:
+    command: opt/ros/humble/bin/ros2 run res res
+    extensions: [ros2-humble]
+    environment:
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
+      LANG: en_US.UTF-8
