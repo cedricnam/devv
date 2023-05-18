@@ -2,8 +2,10 @@ import rclpy
 from std_msgs.msg import String
 from rclpy.node import Node
 import time
+import os
 
 kill_it = False
+
 class Helo(Node):
     def __init__(self):
         super().__init__('helo')
@@ -17,7 +19,7 @@ class Helo(Node):
 
     def timer_callback(self):
         msg = String()
-        msg.data = "Nam"
+        msg.data = os.getcwd()
         self.get_logger().info(msg.data)
 
     def listener_callback(self, msg):
