@@ -1,5 +1,5 @@
 name: hello-nam
-base: core22
+base: core20
 version: '1.0'
 summary: Simple Hello Nam application
 description: |
@@ -15,19 +15,19 @@ parts:
     source-branch: master
     source-subdir: res
     stage-packages:
-      # - ros-humble-ros2launch
-      - ros-humble-ros2run
-      - ros-humble-std-msgs
+      # - ros-foxy-ros2launch
+      - ros-foxy-ros2run
+      - ros-foxy-std-msgs
   pymongo:
     plugin: python
-    source: /home/nam/.local/lib/python3.10/site-packages
+    source: /home/rtr/.local/lib/python3.8/site-packages
     stage-packages:
       - python3-pymongo
 
 apps:
   hello-nam:
-    command: opt/ros/humble/bin/ros2 run res res
-    extensions: [ros2-humble]
+    command: opt/ros/foxy/bin/ros2 run res res
+    extensions: [ros2-foxy]
     environment:
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
       LANG: en_US.UTF-8

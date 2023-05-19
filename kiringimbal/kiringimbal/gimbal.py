@@ -13,9 +13,9 @@ from std_msgs.msg import Float32MultiArray, String, Bool, Int32MultiArray, Float
 from rcl_interfaces.msg import SetParametersResult
 
 from kiringimbal.gimbal_function import Gimbal
-sys.path.append('./src/kirins/communication/communication')
+sys.path.append('./devv/src/devv/reta/reta')
 from database import GimbalDatabase
-
+print(os.getcwd())
 class Kiringimbal(Node):
 	def __init__(self):
 		super().__init__('Gimbal')
