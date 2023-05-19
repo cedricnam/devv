@@ -5,7 +5,10 @@ import time
 import os
 import sys
 
-sys.path.append('./src/devv/reta/reta')
+print(os.getcwd())
+
+sys.path.append('./devv/src/devv/reta/reta')
+# sys.path.append('./src/devv/reta/reta')
 from database import GimbalDatabase
 kill_it = False
 
