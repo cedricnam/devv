@@ -7,9 +7,9 @@ import sys
 
 print(os.getcwd())
 
-# sys.path.append('./devv/src/devv/reta/reta')
+sys.path.append('./devv/src/devv/reta/reta')
 # sys.path.append('./src/devv/reta/reta')
-# from database import GimbalDatabase
+from database import GimbalDatabase
 kill_it = False
 
 class Helo(Node):
@@ -22,12 +22,12 @@ class Helo(Node):
             10)
         timer_period = 1.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
-        # db = GimbalDatabase()
-        # self._serial_port = db.serial_port
+        db = GimbalDatabase()
+        self._serial_port = db.serial_port
 
     def timer_callback(self):
         msg = String()
-        msg.data = os.getcwd()
+        msg.data = self._serial_port
         self.get_logger().info(msg.data)
 
     def listener_callback(self, msg):
