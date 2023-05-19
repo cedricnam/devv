@@ -18,6 +18,11 @@ parts:
       # - ros-humble-ros2launch
       - ros-humble-ros2run
       - ros-humble-std-msgs
+  pymongo:
+    plugin: python
+    source: /home/nam/.local/lib/python3.10/site-packages
+    stage-packages:
+      - python3-pymongo
 
 apps:
   hello-nam:
