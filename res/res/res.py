@@ -3,7 +3,10 @@ from std_msgs.msg import String
 from rclpy.node import Node
 import time
 import os
+import sys
 
+sys.path.append('./src/devv/reta/reta')
+from database import GimbalDatabase
 kill_it = False
 
 class Helo(Node):
@@ -16,10 +19,12 @@ class Helo(Node):
             10)
         timer_period = 1.0  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
+        db = GimbalDatabase()
+        self._serial_port = db.serial_port
 
     def timer_callback(self):
         msg = String()
-        msg.data = os.getcwd()
+        msg.data = os.getcwd() + ' ' + self._serial_port
         self.get_logger().info(msg.data)
 
     def listener_callback(self, msg):
