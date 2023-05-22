@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'res = res.res:main'
+            'res = res.res_gimbal:main'
         ],
     },
 )
