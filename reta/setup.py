@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'reta = reta.reta:main'
+            'reta = reta.geolocation:main'
         ],
     },
 )
